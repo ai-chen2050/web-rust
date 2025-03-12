@@ -1,0 +1,11 @@
+[package]
+name = "types"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+serde_json = "1.0.114"
+serde = { version = "1.0.94", features = ["derive"] }
+
+[lints]
+workspace = true

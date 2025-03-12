@@ -1,0 +1,43 @@
+[workspace]
+members = [
+    ".",
+    "crates/types",
+    "crates/common",
+    "crates/websocket",
+    "crates/alloy-wrapper",
+    "crates/tools",
+    "crates/vrf",
+    "operator/node_api",
+    "operator/db_sql",
+    "operator/runer",
+]
+
+exclude = []
+
+resolver = "2"
+
+[workspace.lints.clippy]
+nursery = "allow"
+cargo = "allow"
+pedantic = "allow"
+restriction = "allow"
+style = "deny"
+complexity = "deny"
+perf = "deny"
+correctness = "deny"
+dbg_macro = "deny"
+
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release]
+opt-level = "z"
+lto = true
+strip = true
+incremental = true
+
+[profile.artifact]
+inherits = "release"
